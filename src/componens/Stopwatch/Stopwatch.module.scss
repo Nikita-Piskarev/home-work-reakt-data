@@ -1,0 +1,36 @@
+.article {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid black;
+  border-radius: 10px;
+  background-color: rgb(199, 114, 114);
+  padding: 20px;
+  font-size: 30px;
+}
+
+.wraperArticle {
+  width: 500px;
+  margin: 40px auto 0 auto;
+}
+
+.timer {
+  color: aliceblue;
+}
+
+.btnWraper {
+  margin-top: 20px;
+}
+
+.btn,
+.btnGreen {
+  color: green;
+  background-color: aquamarine;
+  margin: 0 10px;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+.btnRed {
+  color: red;
+}
