@@ -1,12 +1,12 @@
 import "./App.css";
-import Stopwatch from "./componens/Stopwatch";
+import Stopwatch from "./components/Stopwatch";
 import { Component } from "react";
 class App extends Component {
   render() {
     return (
-      <article>
+      <section>
         <Stopwatch />
-      </article>
+      </section>
     );
   }
 }

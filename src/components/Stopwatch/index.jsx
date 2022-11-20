@@ -1,13 +1,13 @@
 import React, { Component } from "react";
-import ListTimer from "./ListTimer";
 import styles from "./Stopwatch.module.scss";
+import ButtonStartStop from "./ButtonStartStop";
 
 let timer = { huor: 0, minutes: 0, second: 0, isChoice: false };
-const listTimer = [];
 
 class Stopwatch extends Component {
   state = {
     ...timer,
+    listTimer: [],
   };
   timer = () => {
     const { huor, second, minutes } = this.state;
@@ -55,10 +55,11 @@ class Stopwatch extends Component {
   };
 
   SaveTime = () => {
-    const { huor, second, minutes, isChoice } = this.state;
+    const { huor, second, minutes } = this.state;
 
-    listTimer.push({ huor, second, minutes, isChoice });
-    console.log("test");
+    this.setState({
+      listTimer: [...this.state.listTimer, { huor, second, minutes }],
+    });
   };
 
   componentDidMount() {
@@ -78,7 +79,12 @@ class Stopwatch extends Component {
   }
 
   render() {
-    const { minutes, huor, second, isChoice } = this.state;
+    const { minutes, huor, second, isChoice, listTimer } = this.state;
+    const list = listTimer.map((time, index) => (
+      <li className={styles.li} key={index}>
+        {index + 1}.Куг : {time.huor} : {time.minutes} : {time.second}
+      </li>
+    ));
 
     return (
       <div className={styles.wraperArticle}>
@@ -87,24 +93,22 @@ class Stopwatch extends Component {
             {huor} : {minutes} : {second}
           </div>
           <div className={styles.btnWraper}>
-            {" "}
-            <button className={styles.btn} onClick={this.StartStopTime}>
-              {isChoice ? "Start" : "Stop"}
-            </button>
             <button className={styles.btn} onClick={this.isRestart}>
               Restart
             </button>
+            <ButtonStartStop
+              StartStopTime={this.StartStopTime}
+              isChoice={isChoice}
+            />
             <button className={styles.btn} onClick={this.SaveTime}>
               Save
             </button>
           </div>
         </article>
-
-        <ListTimer />
+        <ul>{list}</ul>
       </div>
     );
   }
 }
 
 export default Stopwatch;
-export const list = listTimer;

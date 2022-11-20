@@ -19,18 +19,21 @@
 }
 
 .btnWraper {
+  width: 200px;
+  display: flex;
   margin-top: 20px;
 }
 
-.btn,
-.btnGreen {
+.btn {
   color: green;
   background-color: aquamarine;
-  margin: 0 10px;
   padding: 10px;
   border: 1px solid black;
   border-radius: 10px;
 }
-.btnRed {
-  color: red;
+
+.li {
+  margin: 10px 0;
+  font-size: 20px;
+  color: brown;
 }
