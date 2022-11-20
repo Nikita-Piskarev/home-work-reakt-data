@@ -2,12 +2,13 @@ import React, { Component } from "react";
 import styles from "./Stopwatch.module.scss";
 import ButtonStartStop from "./ButtonStartStop";
 
-let timer = { huor: 0, minutes: 0, second: 0, isChoice: false };
+let timer = { huor: 0, minutes: 0, second: 0 };
 
 class Stopwatch extends Component {
   state = {
     ...timer,
     listTimer: [],
+    isChoice: false,
   };
   timer = () => {
     const { huor, second, minutes } = this.state;
