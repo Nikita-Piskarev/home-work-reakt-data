@@ -1,18 +1,12 @@
 import React, { Component } from "react";
+import styles from "../Stopwatch.module.scss";
 
 class ButtonStartStop extends Component {
   render() {
     const { isChoice, StartStopTime } = this.props;
-    const styleBtnStartStop = {
-      color: isChoice ? "green" : "red",
-      backgroundColor: "aquamarine",
-      margin: "0 auto",
-      padding: "10px",
-      border: "1px solid black",
-      borderRadius: "10px",
-    };
+    const dinamicStyleBtn = isChoice ? styles.btn : styles.btnRed;
     return (
-      <button style={styleBtnStartStop} onClick={StartStopTime}>
+      <button className={dinamicStyleBtn} onClick={StartStopTime}>
         {isChoice ? "Start" : "Stop"}
       </button>
     );

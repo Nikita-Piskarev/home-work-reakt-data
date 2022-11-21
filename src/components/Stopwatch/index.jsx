@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import styles from "./Stopwatch.module.scss";
 import ButtonStartStop from "./ButtonStartStop";
+import styles from "./Stopwatch.module.scss";
 
 let timer = { huor: 0, minutes: 0, second: 0 };
 
@@ -42,7 +42,7 @@ class Stopwatch extends Component {
     });
   };
 
-  StartStopTime = () => {
+  startStopTime = () => {
     const { isChoice } = this.state;
 
     this.setState({
@@ -55,7 +55,7 @@ class Stopwatch extends Component {
     }
   };
 
-  SaveTime = () => {
+  saveTime = () => {
     const { huor, second, minutes } = this.state;
 
     this.setState({
@@ -98,10 +98,10 @@ class Stopwatch extends Component {
               Restart
             </button>
             <ButtonStartStop
-              StartStopTime={this.StartStopTime}
+              StartStopTime={this.startStopTime}
               isChoice={isChoice}
             />
-            <button className={styles.btn} onClick={this.SaveTime}>
+            <button className={styles.btn} onClick={this.saveTime}>
               Save
             </button>
           </div>
