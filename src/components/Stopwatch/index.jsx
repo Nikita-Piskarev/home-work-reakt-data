@@ -42,6 +42,10 @@ class Stopwatch extends Component {
     });
   };
 
+  startInterval = () => {
+    this.timerId = setInterval(this.timer, 1000);
+  };
+
   startStopTime = () => {
     const { isChoice } = this.state;
 
@@ -51,7 +55,7 @@ class Stopwatch extends Component {
     });
 
     if (isChoice) {
-      this.timerId = setInterval(this.timer, 1000);
+      this.startInterval();
     }
   };
 
@@ -64,7 +68,7 @@ class Stopwatch extends Component {
   };
 
   componentDidMount() {
-    this.timerId = setInterval(this.timer, 1000);
+    this.startInterval();
   }
 
   componentDidUpdate() {
